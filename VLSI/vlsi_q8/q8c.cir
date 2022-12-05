@@ -1,0 +1,14 @@
+.include 22nm_MGK.pm
+.include nand.sub
+
+*Voltage source
+VDD vdd GND 1
+
+n1 nodeA nodeC node1 vdd GND nand
+n2 nodeC nodeD node2 vdd GND nand
+n3 nodeB node2 node3 vdd GND nand
+n4 node2 nodeE node4 vdd GND nand
+n5 node1 node3 node5 vdd GND nand
+n6 node4 node3 node6 vdd GND nand
+
+

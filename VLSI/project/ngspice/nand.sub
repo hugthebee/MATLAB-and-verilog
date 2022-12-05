@@ -1,0 +1,7 @@
+.subckt nand x1 x2 y vdd gnd
+*MOSFETS - drain gate source body pmos/nmos W L
+Mp1 y x1 vdd vdd CMOSP W={width_P} L={LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+Mp2 y x2 vdd vdd CMOSP W={width_P} L={LAMBDA} AS={5*width_P*LAMBDA} PS={10*LAMBDA+2*width_P} AD={5*width_P*LAMBDA} PD={10*LAMBDA+2*width_P}
+Mn1 y x1 node0 gnd CMOSN W={width_N} L={LAMBDA} AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+Mn2 node0 x2 gnd gnd CMOSN W={width_N} L={LAMBDA} AS={5*width_N*LAMBDA} PS={10*LAMBDA+2*width_N} AD={5*width_N*LAMBDA} PD={10*LAMBDA+2*width_N}
+.ends nand

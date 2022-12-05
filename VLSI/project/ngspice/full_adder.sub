@@ -1,0 +1,8 @@
+.subckt full_adder x1 x2 cin sum cout vdd gnd
+xg1 x1 x2 y0 vdd gnd xor
+xg2 y0 cin sum vdd gnd xor
+xag1 x1 x2 y1 vdd gnd and
+xag2 cin y0 y2 vdd gnd and
+xog1 y1 y2 cout vdd gnd or
+.ends full_adder
+*to call a subcircuit - name ip/op nameofsubcircuit

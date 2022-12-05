@@ -1,0 +1,6 @@
+.subckt xor x1 x2 y vdd gnd
+xn1 x1 x2 o1 vdd gnd nand
+xn2 x1 o1 o2 vdd gnd nand
+xn3 x2 o1 o3 vdd gnd nand
+xn4 o2 o3 y vdd gnd nand
+.ends xor

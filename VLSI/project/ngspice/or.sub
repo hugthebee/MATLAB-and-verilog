@@ -1,0 +1,5 @@
+.subckt or x1 x2 y vdd gnd
+xng1 x1 x1 y1 vdd gnd nand
+xng2 x2 x2 y2 vdd gnd nand
+xng3 y1 y2 y vdd gnd nand
+.ends or

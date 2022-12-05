@@ -1,0 +1,142 @@
+.include 22nm_MGK.pm
+.param X = 22nm
+.param l = X
+.param w = 2*X
+
+*voltage source
+VDD node1 GND 1
+VA nodeA GND pulse(1 0 0 0.1n 0.1n 1u 2u)
+VB nodeB GND pulse(1 0 -0.5u 0.1n 0.1n 1u 2u)
+
+*MOSFETS - drain gate source body
+Mp1 node5 nodeA node1 node1 pmos W={w} L={l}
+Mp2 node5 nodeB node1 node1 pmos W={w} L={l}
+Mn1 node4 nodeA GND GND nmos W={w} L={l}
+Mn2 node5 nodeB node4 GND nmos W={w} L={l}
+
+*capacitor 
+Cout node5 GND 3.5f
+
+.control
+set color0=blasck 
+set color1 = white
+let width = 22n
+
+let k = 22n
+let add = 22n
+while k < 221n
+    let width = k
+    alter @Mp1[W] width
+    run
+    tran 1n 10u
+
+    * for input at node A   
+    meas tran triseA 
+    + TRIG v(nodeA) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallA 
+    + TRIG v(nodeA) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    meas tran triseB 
+    + TRIG v(nodeB) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallB
+    + TRIG v(nodeB) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    let k = k + add
+end
+
+let width = 22n
+
+let k = 22n
+let add = 22n
+while k < 221n
+    let width = k
+    alter @Mp2[W] width
+    run
+    tran 1n 10u
+
+    * for input at node A   
+    meas tran triseA 
+    + TRIG v(nodeA) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallA 
+    + TRIG v(nodeA) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    meas tran triseB 
+    + TRIG v(nodeB) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallB
+    + TRIG v(nodeB) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    let k = k + add
+end
+
+let width = 22n
+
+let k = 22n
+let add = 22n
+while k < 221n
+    let width = k
+    alter @Mn1[W] width
+    run
+    tran 1n 10u
+
+    * for input at node A   
+    meas tran triseA 
+    + TRIG v(nodeA) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallA 
+    + TRIG v(nodeA) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    meas tran triseB 
+    + TRIG v(nodeB) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallB
+    + TRIG v(nodeB) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    let k = k + add
+end
+
+let k = 22n
+let add = 22n
+while k < 221n
+    let width = k
+    alter @Mn2[W] width
+    run
+    tran 1n 10u
+
+    * for input at node A   
+    meas tran triseA 
+    + TRIG v(nodeA) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallA 
+    + TRIG v(nodeA) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    meas tran triseB 
+    + TRIG v(nodeB) VAL = 0.9 FALL =1
+    + TARG v(node5) VAL = 0.1 RISE =1 
+
+    meas tran tfallB
+    + TRIG v(nodeB) VAL = 0.1 RISE =1 
+    + TARG v(node5) VAL = 0.9 FALL=1
+
+    let k = k + add
+end
+
+.endc
+.end

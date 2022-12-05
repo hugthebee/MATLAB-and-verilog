@@ -1,0 +1,4 @@
+.subckt and x1 x2 y vdd gnd
+xng1 x1 x2 y0 vdd gnd nand
+xn0g1 y0 y vdd gnd not
+.ends and

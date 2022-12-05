@@ -1,0 +1,8 @@
+.subckt nand x1 x2 y vdd gnd
+.include 22nm_MGK.pm
+Mp1 y x1 vdd vdd pmos W={w} L={l}
+Mp2 y x2 vdd vdd pmos W={w} L={l}
+Mn1 node0 x1 gnd gnd nmos W={w} L={l}
+Mn2 y x2 node0 GND nmos W={w} L={l}
+
+.ends nand

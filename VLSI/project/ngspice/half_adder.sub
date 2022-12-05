@@ -1,0 +1,5 @@
+.subckt half_adder x1 x2 sum carry vdd gnd
+xg1 x1 x2 sum vdd gnd xor
+xag1 x1 x2 carry vdd gnd and
+.ends half_adder
+*to call a subcircuit - name ip/op nameofsubcircuit

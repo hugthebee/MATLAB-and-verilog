@@ -1,0 +1,30 @@
+.subckt mp a0 a1 a2 a3 b0 b1 b2 b3 p0 p1 p2 p3 p4 p5 p6 p7 vdd gnd
+xag1 a0 b0 p0 vdd gnd and
+xag2 a0 b1 y0 vdd gnd and
+xag3 a1 b0 y1 vdd gnd and
+xha1 y0 y1 p1 c0 vdd gnd half_adder
+xag4 a1 b1 y2 vdd gnd and
+xag5 a2 b0 y3 vdd gnd and
+xag6 a0 b2 y4 vdd gnd and
+xha2 y2 y3 y5 c1 vdd gnd half_adder
+xfa1 y4 y5 c0 p2 c2 vdd gnd full_adder
+xag7 a2 b1 y6 vdd gnd and
+xag8 a3 b0 y7 vdd gnd and 
+xha3 y6 y7 y8 c3 vdd gnd half_adder
+xag9 a1 b2 y9 vdd gnd and
+xfa2 y9 y8 c1 y10 c4 vdd gnd full_adder
+xag10 a0 b3 y11 vdd gnd and
+xfa3 y11 y10 c2 p3 c5 vdd gnd full_adder
+xag11 a3 b1 y12 vdd gnd and
+xag12 a2 b2 y13 vdd gnd and
+xfa4 y12 y13 c3 y14 c6 vdd gnd full_adder
+xag13 a1 b3 y15 vdd gnd and
+xfa5 y15 y14 c4 y16 c7 vdd gnd full_adder
+xha4 y16 c5 p4 c8 vdd gnd half_adder
+xag14 a2 b3 y17 vdd gnd and
+xad15 a3 b2 y18 vdd gnd and
+xfa6 y17 y18 c6 y19 c9 vdd gnd full_adder
+xfa7 y19 c7 c8 p5 c10 vdd gnd full_adder
+xag16 a3 b3 y20 vdd gnd and
+xfa8 y20 c9 c10 p6 p7 vdd gnd full_adder
+.ends mp

@@ -1,0 +1,63 @@
+magic
+tech scmos
+timestamp 1669656661
+<< metal1 >>
+rect -380 185 -340 189
+rect -363 178 -314 182
+rect -151 142 -147 183
+rect -142 145 -134 149
+rect -151 138 -135 142
+rect 56 139 66 143
+rect -146 47 -142 138
+rect -146 43 -122 47
+rect -153 36 -127 40
+rect -22 38 -12 43
+rect -17 16 -12 38
+rect -17 11 -5 16
+rect 31 -15 35 16
+rect 31 -19 39 -15
+rect 31 -26 39 -22
+rect 88 -26 98 -22
+rect -161 -32 -129 -28
+rect -161 -39 -130 -35
+rect -23 -37 -11 -32
+rect -16 -42 -4 -37
+rect 31 -42 35 -26
+use xor  xor_1
+timestamp 1669650328
+transform 1 0 -329 0 1 155
+box -21 -26 191 110
+use xor  xor_0
+timestamp 1669650328
+transform 1 0 -125 0 1 115
+box -21 -26 191 110
+use and  and_0
+timestamp 1669650498
+transform 1 0 -113 0 1 15
+box -27 -2 102 66
+use and  and_1
+timestamp 1669650498
+transform 1 0 -114 0 1 -60
+box -27 -2 102 66
+use not  not_0
+timestamp 1669646748
+transform 1 0 26 0 1 21
+box -35 -30 8 23
+use not  not_1
+timestamp 1669646748
+transform 1 0 26 0 1 -32
+box -35 -30 8 23
+use nand  nand_0
+timestamp 1669646839
+transform 1 0 73 0 1 -16
+box -34 -33 16 35
+<< labels >>
+rlabel space -367 178 -359 182 3 B
+rlabel space -383 185 -379 189 3 A
+rlabel space 58 136 68 140 1 SUM
+rlabel space 101 -26 111 -22 7 CARRY
+rlabel metal1 -161 -32 -155 -31 1 A
+rlabel metal1 -161 -39 -155 -38 1 B
+rlabel space -142 142 -134 146 1 Cin
+rlabel space -154 33 -146 37 1 Cin
+<< end >>

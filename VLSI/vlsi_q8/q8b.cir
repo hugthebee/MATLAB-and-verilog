@@ -1,0 +1,43 @@
+.include 22nm_MGK.pm
+*.include nand.sub
+
+.param X = 22nm
+.param l = X
+.param w = 2*X
+
+VDD node1 GND 1
+VA nodeA GND pulse(1 0 0 0.1n 0.1n 1u 2u)
+VB nodeB GND pulse(1 0 -0.5u 0.1n 0.1n 1u 2u)
+
+*MOSFETS - drain gate source body
+Mp1 node5 nodeA node1 node1 pmos W={w} L={l}
+Mp2 node5 nodeB node1 node1 pmos W={w} L={l}
+Mn1 node4 nodeA GND GND nmos W={w} L={l}
+Mn2 node5 nodeB node4 GND nmos W={w} L={l}
+
+Cout node5 GND 1.75f
+
+.control
+
+set temp = 45.94493956040523
+run
+tran 1n 10u
+meas tran triseA 
++ TRIG v(nodeA) VAL = 0.9 FALL =1
++ TARG v(node5) VAL = 0.1 RISE =1 
+
+meas tran tfallA 
++ TRIG v(nodeA) VAL = 0.1 RISE =1 
++ TARG v(node5) VAL = 0.9 FALL=1
+
+meas tran triseB 
++ TRIG v(nodeB) VAL = 0.9 FALL =1
++ TARG v(node5) VAL = 0.1 RISE =1 
+
+meas tran tfallB
++ TRIG v(nodeB) VAL = 0.1 RISE =1 
++ TARG v(node5) VAL = 0.9 FALL=1
+run
+plot  v(node5)+2
+
+.endc
